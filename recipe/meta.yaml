@@ -1,0 +1,59 @@
+{% set name = 'xtcav2' %}
+{% set version = '0.3' %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/simplejson/{{ name }}/releases/download/{{ version }}/{{ name }}-v{{ version }}.tar.gz
+  sha256: e605dc33804a4792f74f19ebc921df68d9acadeb239a852177b098b151373acd
+
+build:
+  skip: True  # [win or osx]
+  number: 0
+  script:
+    - python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - h5py
+    - scikit-learn
+    - mpi4py
+    - psana
+
+  sha256: 0db8cd722a06a3db057cab2baf49f5ce508b1ff65835eb3b5120dfcad40f6a96
+  patches:
+    - ndarray_ext.patch
+
+test:
+  commands:
+    - psana -h
+
+about:
+  home: https://lcls.slac.stanford.edu
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.md
+  summary: 'Data analysis softweare for the XTCAV (X-band Transverse deflecting mode CAVity) detector'
+  description: |
+    the XTCAV (X-band Transverse deflecting mode CAVity) is a detector
+    that is used to determine the x-ray power vs. time of each LCLS shot.
+    It can also be used to give information about the relative energies
+    and arrival times of x-ray pulses that are closely spaced in time
+    (fs delays). Unfortunately, some data analysis is necessary to
+    extract this power profile from the raw detector signal.
+  doc_url: https://github.com/slaclab/xtcav2/blob/master/README.md  
+  dev_url: https://github.com/slaclab/xtcav2
+
+extra:
+  recipe-maintainers:
+    - valmar
+    - chrisvam
