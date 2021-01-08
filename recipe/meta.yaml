@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/simplejson/{{ name }}/releases/download/{{ version }}/{{ name }}-v{{ version }}.tar.gz
+  url: https://github.com/slaclab/{{ name }}/archive/v{{ version}}.tar.gz
   sha256: e605dc33804a4792f74f19ebc921df68d9acadeb239a852177b098b151373acd
 
 build:
@@ -29,13 +29,9 @@ requirements:
     - mpi4py
     - psana
 
-  sha256: 0db8cd722a06a3db057cab2baf49f5ce508b1ff65835eb3b5120dfcad40f6a96
-  patches:
-    - ndarray_ext.patch
-
 test:
-  commands:
-    - psana -h
+  imports:
+    - xtcav2
 
 about:
   home: https://lcls.slac.stanford.edu
