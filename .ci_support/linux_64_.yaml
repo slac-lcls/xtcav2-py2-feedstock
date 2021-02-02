@@ -1,9 +1,9 @@
 cdt_name:
 - cos6
 channel_sources:
-- valmar,conda-forge,defaults
+- lcls-i,conda-forge,defaults
 channel_targets:
-- valmar main
+- lcls-i main
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 pin_run_as_build:
