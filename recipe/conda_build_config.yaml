@@ -1,7 +1,7 @@
 channel_sources:
-  - valmar,conda-forge,defaults
+  - lcls-i,conda-forge,defaults
 channel_targets:
-  - valmar main
+  - lcls-i main
 
 python:
   # part of a zip_keys: python, python_impl, numpy

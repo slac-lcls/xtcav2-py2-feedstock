@@ -18,4 +18,4 @@ channels:
     - conda-forge
     - defaults
   targets:
-    - ["valmar", "main"]
+    - ["lcls-i", "main"]
