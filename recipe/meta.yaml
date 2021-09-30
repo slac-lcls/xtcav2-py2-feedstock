@@ -26,7 +26,6 @@ requirements:
     - scipy=1.2.0
     - h5py=2.10.0
     - scikit-learn=0.20.4
-    - mpi4py=3.0.3
     - psana
 
 test:
